@@ -4,7 +4,8 @@
   "description": "This is my DWDD-2720 course TypeScript project",
   "main": "index.js",
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vite build"
   },
   "author": "Thor Anderson",
   "license": "ISC",
@@ -12,6 +13,7 @@
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.33",
     "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3",
     "vite": "^5.0.11"
   }
 }
