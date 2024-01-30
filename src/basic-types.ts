@@ -50,6 +50,35 @@ export function arrayTypesExample() {
   }
 }
 
+export function specialTypesExample() {
+  return {
+    title: `Weird Types`,
+    explanation: `TypeScript has a few data types that are a little weird, including: any, void, null, undefined, and never.`,
+    code: `
+    // Any type
+    let notSure: any = sportsCar;
+    console.log(notSure);
+    // this is valid because notSure is of type any so it can be assigned (and reassigned) any value
+    
+    // Void type
+    function logMessage(message: string): void {
+        console.log(message);
+    }
+    // void is used on functions that return nothing
+    
+    // Null and Undefined
+    let u: undefined = undefined; // undefined is a JavaScript primitive value, and TypeScript has a type named undefined that corresponds to the JavaScript value.
+    let n: null = null; // null is a JavaScript primitive value, and TypeScript has a type named null that corresponds to the JavaScript value.
+    
+    // Never type
+    function error(message: string): never {
+        throw new Error(message);
+    }
+    // never is a data type that represents the type of values that never occur
+    // an example of a function that returns never is a function that always throws an error`
+  }
+}
+
 export function functionTypesExample() {
   return {
     title: "Function Types",
@@ -77,3 +106,25 @@ const sportsCar = {
     year: 2019,
     color: Color.Bahama_Green
 }
+
+// Any type
+let notSure: any = sportsCar;
+console.log(notSure);
+// this is valid because notSure is of type any so it can be assigned (and reassigned) any value
+
+// Void type
+function logMessage(message: string): void {
+    console.log(message);
+}
+// void is used on functions that return nothing
+
+// Null and Undefined
+let u: undefined = undefined; // undefined is a JavaScript primitive value, and TypeScript has a type named undefined that corresponds to the JavaScript value.
+let n: null = null; // null is a JavaScript primitive value, and TypeScript has a type named null that corresponds to the JavaScript value.
+
+// Never type
+function error(message: string): never {
+    throw new Error(message);
+}
+// never is a data type that represents the type of values that never occur
+// an example of a function that returns never is a function that always throws an error
