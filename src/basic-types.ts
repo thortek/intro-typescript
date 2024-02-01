@@ -109,7 +109,7 @@ const sportsCar = {
 
 // Any type
 let notSure: any = sportsCar;
-console.log(notSure);
+//console.log(notSure);
 // this is valid because notSure is of type any so it can be assigned (and reassigned) any value
 
 // Void type
