@@ -79,15 +79,7 @@ export function specialTypesExample() {
   }
 }
 
-export function functionTypesExample() {
-  return {
-    title: "Function Types",
-    explanation: `In JavaScript, functions are objects. TypeScript allows you to annotate functions with types.
-            - parameter types
-            - return types`,
-    code: `// parameter types`,
-  }
-}
+
 
 // example of function type with parameter types
 
