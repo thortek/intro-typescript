@@ -18,6 +18,14 @@ const addArrow = (num1: number, num2: number): string => (num1 + num2).toString(
 console.log(addArrow(5, 7))
 // Arguments are the actual values that are passed into a function when it is called.
 
+function greetUser(name: string, age?: number): string {
+    if (age) {
+        return `Hello ${name}, you are ${age} years old.`
+    } else {
+        return `Hello ${name}`
+    }
+}
+
 export const functionParamsExample = () => {
     return {
         title: `Data types can be set for function parameters.`,
@@ -49,11 +57,26 @@ const addArrow = (num1: number, num2: number): string => (num1 + num2).toString(
     }
 }
 
+export const optionalParamsExample = () => {
+    return {
+        title: `Function parameters can be optional. Here, the "greetUser" function takes a required name parameter and an optional age parameter.  The return type annotation is a string.`,
+        explanation: `If the optional age parameter is provided, the function will return a string that includes the name and age of the user.  If the optional age parameter is not provided, the function will return a string that only includes the name of the user.`,
+        code: `
+        function greetUser(name: string, age?: number): string {
+            if (age) {
+                return "Hello " + name + ", you are " + age + " years old."
+            } else {
+                return "Hello " + name
+            }
+        }`,
+    }
+}
+
 const nextButton = document.querySelector('#nextButton');
 const prevButton = document.querySelector('#prevButton');
 
 nextButton.addEventListener('click', () => {
-    if (indicator < 3) {
+    if (indicator < 4) {
         indicator++;
         loadExample(indicator);
     }
@@ -83,6 +106,9 @@ function loadExample(exampleNum: number = 1) {
         case 3:
             chosenExample = functionArrowExample();
             break;
+        case 4:
+            chosenExample = optionalParamsExample();
+            break;
         default:
             chosenExample = functionParamsExample();
     }
@@ -93,3 +119,24 @@ function loadExample(exampleNum: number = 1) {
 }
 
 loadExample(indicator);
+
+
+// Callback functions are functions that are passed as arguments to other functions. They are used to execute code after a certain event has occurred.
+
+function delayedResponse(callback: (message: string) => void, delay: number): void {
+    setTimeout(() => {
+        callback('This is a delayed response');
+    }, delay);
+}
+
+// Usage
+delayedResponse((message) => {
+    console.log(message);
+}, 4000);
+
+function fetchData(url: string, callback: (data: string) => void): void {
+    // Performs some asynchronous operation to fetch data from the provided URL
+    // When the operation is complete, the callback function is called with the fetched data
+    const data = "Some data fetched from the URL";
+    callback(data);
+}
