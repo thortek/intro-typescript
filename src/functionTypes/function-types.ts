@@ -1,9 +1,12 @@
 import hljs from "highlight.js/lib/core";
 import typescript from "highlight.js/lib/languages/typescript";
+import { ExampleCode } from "../types/ExampleCode";
 
 hljs.registerLanguage("typescript", typescript);
 
 let indicator: number = 1;
+
+console.log(greetUser('John', 25))
 
 // A parameter is a named variable passed into a function. Parameter variables are used to import arguments into functions.
 function add(num1: number, num2: number): string {
@@ -26,7 +29,8 @@ function greetUser(name: string, age?: number): string {
     }
 }
 
-export const functionParamsExample = () => {
+
+export const functionParamsExample = (): ExampleCode => {
     return {
         title: `Data types can be set for function parameters.`,
         explanation: `When writing functions in TypeScript, you can specify the types of data that the function expects as parameters`,
@@ -37,7 +41,7 @@ export const functionParamsExample = () => {
     }
 }
 
-export const functionReturnTypesExample = () => {
+export const functionReturnTypesExample = (): ExampleCode => {
     return {
         title: `Data types can be set for the return value of a function.`,
         explanation: `When writing functions in TypeScript, you can specify the type of data that the function will return.`,
@@ -48,7 +52,7 @@ export const functionReturnTypesExample = () => {
     }
 }
 
-export const functionArrowExample = () => {
+export const functionArrowExample = (): ExampleCode => {
     return {
         title: `Arrow functions can be used to define functions. All of the data typeing of parameters and return values can be done in the same line.`,
         explanation: `Arrow functions are a more concise way to define functions in JavaScript and TypeScript.`,
@@ -57,7 +61,7 @@ const addArrow = (num1: number, num2: number): string => (num1 + num2).toString(
     }
 }
 
-export const optionalParamsExample = () => {
+export const optionalParamsExample = (): ExampleCode => {
     return {
         title: `Function parameters can be optional. Here, the "greetUser" function takes a required name parameter and an optional age parameter.  The return type annotation is a string.`,
         explanation: `If the optional age parameter is provided, the function will return a string that includes the name and age of the user.  If the optional age parameter is not provided, the function will return a string that only includes the name of the user.`,
@@ -72,11 +76,14 @@ export const optionalParamsExample = () => {
     }
 }
 
+// put all of the code examples into an array
+const codeExamples = [functionParamsExample, functionReturnTypesExample, functionArrowExample, optionalParamsExample];
+
 const nextButton = document.querySelector('#nextButton');
 const prevButton = document.querySelector('#prevButton');
 
 nextButton.addEventListener('click', () => {
-    if (indicator < 4) {
+    if (indicator < codeExamples.length) {
         indicator++;
         loadExample(indicator);
     }
@@ -95,7 +102,7 @@ const cardCode = document.querySelector("#cardCode");
 
 function loadExample(exampleNum: number = 1) {
     // based on the exampleNum, load the appropriate example
-    let chosenExample
+    let chosenExample: ExampleCode;
     switch (exampleNum) {
         case 1:
             chosenExample = functionParamsExample();
