@@ -7,22 +7,46 @@ const blocksArray =  Object.values(blocks)
 // this is an example of destructuring an array
 const [basicCSS, basicHTML, flexbox, grid] = blocksArray;
 
-//console.log(basicCSS);
+// example of destructuring an object
+let { meta, challenges } = basicCSS;
+
+
 
 const navBar = document.querySelector('.navbar');
+const navList = document.querySelector('#navList');
 
 const buildTopNavFromJSON = (blocksArray: any) => {
     blocksArray.forEach((block: any, index: number) => {
-        console.log(block.meta.name)
+        //console.log(block.meta.name)
         const navItem = document.createElement('a');
         navItem.classList.add('btn', 'btn-sm', 'm-4')
-        navItem.href = `#${block.meta.name}`;
+        navItem.href = `#${block.meta.dashedName}`;
         navItem.textContent = block.meta.name;
+
+        navItem.addEventListener('click', () => {
+            console.log(block.meta.name)
+            buildNavFromJSON(block);
+        })
+/*Bug: Every click just keeps adding list items to the <ul>
+ Feature:  Make each top nav button indicate when it is active by changing its color.
+*/
         navBar?.appendChild(navItem);
     })
 }
 
+const buildNavFromJSON = (block: any) => {
+    block.challenges.forEach((challenge: any) => {
+        //console.log(challenge)
+        const listItem = document.createElement('li');
+        listItem.textContent = challenge.title
+        listItem.classList.add('btn', 'btn-xs', 'p-[2px]', 'mx-0')
+        navList?.appendChild(listItem);
+    })
+}
+
 buildTopNavFromJSON(blocksArray);
+
+//buildNavFromJSON(basicCSS);
 
 
 
@@ -85,6 +109,6 @@ class Duck implements CanQuack, CanFly, CanSwim {
 }
 
 const duck = new Duck()
-duck.quack()
-duck.fly()
-duck.swim()
+//duck.quack()
+//duck.fly()
+//duck.swim()
