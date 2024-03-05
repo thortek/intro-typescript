@@ -1,5 +1,6 @@
 import curriculum from "../data/curriculum.json"
 import { CodeSnippet } from "../lib/classes/CodeSnippet"
+import hljs from "highlight.js/lib/common";
 
 const blocks = curriculum["responsive-web-design"].blocks
 
@@ -49,11 +50,13 @@ const buildLeftNavFromJSON = (block: any) => {
     //console.log(challenge)
     const listItem = document.createElement("li")
     listItem.textContent = challenge.title
-    listItem.classList.add("btn", "btn-xs", "p-[2px]", "mx-0")
+    listItem.classList.add("w-64", "hover:cursor-pointer", "hover:text-blue-500", "p-2", "border", "bg-gray-800", "text-center", "rounded-xl", "my-1")
 
     listItem.addEventListener("click", () => {
-        //console.log(challenge.title)
+        console.log(challenge.title)
         buildSnippetDisplay(challenge)
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+        
     })
 
     navList?.appendChild(listItem)
@@ -67,27 +70,38 @@ const buildSnippetDisplay = (challenge: any) => {
     }
   // need instances of a CodeSnippet class to be created here
   // we will call the constructor method of the CodeSnippet class here
-  const snippet = new CodeSnippet(challenge.title, challenge.description, challenge.instructions)
+  const snippet = new CodeSnippet(
+    challenge.title, 
+    challenge.description, 
+    challenge.instructions,
+    challenge.solutions[0].indexhtml.contents)
 
   // make some DOM elements to display the code snippet
 
     const title = document.createElement("h2")
     title.textContent = snippet.title
+    title.classList.add("text-2xl", "font-bold", "text-center", "my-4")
 
     const description = document.createElement("div")
     description.innerHTML = snippet.description
+    //description.innerHTML = hljs.highlight(snippet.description, {language: "html"}).value;
 
     const instructions = document.createElement("div")
     instructions.innerHTML = snippet.instructions
+    instructions.classList.add("bg-blue-900", "p-4", "rounded-xl", "text-white")
+
+    const snippetSolution = document.createElement("div")
+    snippetSolution.innerHTML = snippet.solution
 
     snippetDisplay?.appendChild(title)
     snippetDisplay?.appendChild(description)
     snippetDisplay?.appendChild(instructions)
+    snippetDisplay?.appendChild(snippetSolution)
 }
 
 buildTopNavFromJSON(blocksArray)
 
-//buildNavFromJSON(basicCSS);
+buildLeftNavFromJSON(basicCSS);
 
 /*
 A Duck object needs to be able to quack and fly and swim. We can define an interface for the Duck object that specifies the methods that the Duck object should have. We can then use the interface to define the Duck object. This is a simple example of how interfaces can be used to define objects in TypeScript.
