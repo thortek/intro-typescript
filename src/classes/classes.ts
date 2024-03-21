@@ -59,16 +59,18 @@ const classExample = new ExampleCodeSnippet(
 const abstractClassExample = new ExampleCodeSnippet(
     'Abstract Class Example',
     `Abstract classes are base classes from which other classes may be derived. They may not be instantiated directly. Unlike an interface, an abstract class may contain implementation details for its members.`,
-    `abstract class Shape {
+    `
+    abstract class Shape {
 
-    protected color: string;
+        protected color: string;
 
-    abstract getArea(): number;
+        abstract getArea(): number;
 
-    abstract getPerimeter(): number;
+        abstract getPerimeter(): number;
 
-    getColor(): string {
-        return this.color;
+        getColor(): string {
+            return this.color;
+        }
     }`
 )
 
@@ -78,8 +80,10 @@ if (example1) example1.innerHTML = abstractClassExample.renderCodeSnippet()
 const inheritanceExample = new ExampleCodeSnippet(
     'Inheritance Example',
     `Inheritance is a mechanism in which one class acquires the property of another class. It helps to reuse, extend, and modify the code.`,
-    `class Circle extends Shape {
-    private radius: number;
+`
+class Circle extends Shape {
+
+private radius: number;
 
     constructor(color: string, radius: number) {
         super();
@@ -102,7 +106,9 @@ if (example2) example2.innerHTML = inheritanceExample.renderCodeSnippet()
 const polymorphismExample = new ExampleCodeSnippet(
     'Polymorphism Example',
     `Polymorphism is an object-oriented programming concept that allows objects of different types to be treated as objects of a common type.`,
-    `class Rectangle extends Shape {
+    `
+class Rectangle extends Shape {
+    
     private width: number;
     private height: number;
 
@@ -276,6 +282,3 @@ const alice = new Person('Alice', 30, 'Engineer');
 alice.greet(); // Output: Hello, my name is Alice and I am 30 years old.
 //alice.name; // Error: Property 'name' is private and only accessible within class 'Person'.
 alice.getName(); // Output: 'Alice'
-
-
-
