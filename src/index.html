@@ -1,47 +1,70 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--     <link rel="stylesheet" href="styles/vs2015.css"> -->
-    <link rel="stylesheet" href="index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--     <link rel="stylesheet" href="styles/vs2015.css"> -->
+    <link rel="stylesheet" href="index.css" />
     <title>Introduction to TypeScript</title>
-</head>
-<body>
-    <main class="block bg-[url('../images/img-techBackground1.png')] bg-cover">
-        <header class="fixed w-full opacity-70">
-            <div class="navbar bg-primary-content">
-                <div class="navbar-start">
-                  <div class="dropdown">
-                    <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
-                    </div>
-                    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                      <li><a href="/basicTypes/index.html">Basic Types</a></li>
-                      <li><a>Portfolio</a></li>
-                      <li><a>About</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="navbar-center">
-                  <a class="btn btn-ghost text-lg">Thor's TypeScript Portfolio</a>
-                </div>
-                <div class="navbar-end">
-                  <button class="btn btn-outline">About Me
-                  </button>
-                </div>
+  </head>
+  <body>
+    <main class="bg-[url('../images/pexels-daniel-absi.jpg')] bg-cover">
+      <header class="fixed w-full opacity-70">
+        <div class="navbar bg-primary-content">
+          <div class="navbar-start">
+            <div class="dropdown">
+              <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h7" />
+                </svg>
               </div>
-            </header>
-      <div class="hero min-h-screen ">
+              <ul
+                tabindex="0"
+                class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                <li><a href="/basicTypes/index.html">Basic Types</a></li>
+                <li><a href="/functionTypes/index.html">Function Types</a></li>
+                <li><a href="/interfaces/index.html">Interfaces</a></li>
+                <li><a href="/classes/index.html">Classes</a></li>
+                <li><a href="/generics/index.html">Generics</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="navbar-center">
+            <a class="btn btn-ghost text-lg">Thor's TypeScript Portfolio</a>
+          </div>
+          <div class="navbar-end">
+            <button class="btn btn-outline">About Me</button>
+          </div>
+        </div>
+      </header>
+      <div class="hero min-h-screen">
         <div class="hero-content flex-col lg:flex-row-reverse">
-          <img src="images/thor-hammer-lightning.png" class="max-w-sm rounded-lg shadow-2xl" />
+          <img
+            src="images/thor-hammer-lightning.png"
+            class="max-w-sm rounded-lg shadow-2xl" />
           <div>
             <h1 class="text-5xl font-bold">Box Office News!</h1>
-            <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+            <p class="py-6">
+              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
+              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
+              et a id nisi.
+            </p>
             <button class="btn btn-primary">Get Started</button>
           </div>
         </div>
-      </div> 
+      </div>
+      <footer class="w-full text-center bg-base-100 opacity-70">
+        <p>&copy; 2024 Thor Anderson Designs</p>
+      </footer>
     </main>
-</body>
+  </body>
 </html>
